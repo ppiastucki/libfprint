@@ -119,6 +119,8 @@ driver_sources = {
         [ 'drivers/elan.c' ],
     'virtual_image' :
         [ 'drivers/virtual-image.c' ],
+    'virtual_sdcp' :
+        [ 'drivers/virtual-sdcp.c' ],
     'synaptics' :
         [ 'drivers/synaptics/synaptics.c', 'drivers/synaptics/bmkt_message.c' ],
     'goodixmoc' :
@@ -144,6 +146,8 @@ driver_helpers = {
     'aes2660' : [ 'aeslib', 'aesx660' ],
     'aes3500' : [ 'aeslib', 'aes3k' ],
     'aes4000' : [ 'aeslib', 'aes3k' ],
+
+    'virtual_sdcp' : [ 'sdcp' ],
 }
 
 helpers = []
