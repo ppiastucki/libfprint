@@ -91,6 +91,7 @@ typedef enum {
  * @FP_DEVICE_ERROR_DATA_NOT_FOUND: Requested print was not found on device
  * @FP_DEVICE_ERROR_DATA_FULL: No space on device available for operation
  * @FP_DEVICE_ERROR_DATA_DUPLICATE: Enrolling template duplicates storaged templates
+ * @FP_DEVICE_ERROR_UNTRUSTED: Device cannot be trusted
  *
  * Error codes for device operations. More specific errors from other domains
  * such as #G_IO_ERROR or #G_USB_DEVICE_ERROR may also be reported.
@@ -106,6 +107,7 @@ typedef enum {
   FP_DEVICE_ERROR_DATA_NOT_FOUND,
   FP_DEVICE_ERROR_DATA_FULL,
   FP_DEVICE_ERROR_DATA_DUPLICATE,
+  FP_DEVICE_ERROR_UNTRUSTED,
 } FpDeviceError;
 
 GQuark fp_device_retry_quark (void);
