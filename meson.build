@@ -150,28 +150,6 @@ foreach driver: drivers
     endif
 endforeach
 
-# Export the drivers' types to the core code
-drivers_type_list = []
-drivers_type_func = []
-drivers_type_list += '#include <glib-object.h>'
-drivers_type_list += '#include "fpi-context.h"'
-drivers_type_list += ''
-drivers_type_func += 'GArray *'
-drivers_type_func += 'fpi_get_driver_types (void)'
-drivers_type_func += '{'
-drivers_type_func += '  GArray *drivers = g_array_new (TRUE, FALSE, sizeof (GType));'
-drivers_type_func += '  GType t;'
-drivers_type_func += ''
-foreach driver: drivers
-    drivers_type_list += 'extern GType (fpi_device_' + driver + '_get_type) (void);'
-    drivers_type_func += '  t = fpi_device_' + driver + '_get_type ();'
-    drivers_type_func += '  g_array_append_val (drivers, t);'
-    drivers_type_func += ''
-endforeach
-drivers_type_list += ''
-drivers_type_func += '  return drivers;'
-drivers_type_func += '}'
-
 root_inc = include_directories('.')
 
 if get_option('udev_rules')
